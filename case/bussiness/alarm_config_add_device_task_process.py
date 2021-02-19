@@ -36,7 +36,7 @@ def alarm_config_add_device_task_process(host,instrument_name="ETH_CRO",timefram
 
 
 if __name__ == "__main__":
-    HOST = {"host": "api.crypto.com"}
+    HOST = {"host": "uat-api.3ona.co"}
     # db_name="ljr_test_1989"
     log = log_config(c_level=logging.INFO, f_level=logging.INFO, out_path=LogUtil.get_log_path(), filename='log')[0]
     param = {"alarm_type": "EVENT_TRAFFIC"}
