@@ -130,7 +130,7 @@ def flow(func):
 class Func:
     log = log_config(c_level=logging.WARNING, f_level=None)[0]
     log_msg_flag = False
-    protocol = 'http'
+    protocol = 'https'
 
     @classmethod
     def api(cls, *args, **kwargs):

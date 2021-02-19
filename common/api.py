@@ -25,7 +25,7 @@ class Api:
         self.params = {} if params is None else params
         self.timeout = timeout
         self.protocol = protocol
-        if host.split(':')[-1] == '30443':
+        if host.split(':')[-1] == '443':
             self.protocol = 'https'
         self.headers = {} if headers is None else headers
         s.verify = s.verify if verify is None else verify
