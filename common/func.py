@@ -138,7 +138,7 @@ class Func:
         if kwargs.get('gateway_protocol'):
             protocol = kwargs.get('gateway_protocol')
             del kwargs['gateway_protocol']
-        _api = WrapperApi(*args, log=cls.log, log_msg_flag=cls.log_msg_flag, protocol=protocol, **kwargs)
+        _api = WrapperApi(*args, log=cls.log, log_msg_flag=cls.log_msg_flag, protocol=protocol,verify=False, **kwargs)
         return _api
 
 class LogUtil:
