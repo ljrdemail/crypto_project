@@ -11,8 +11,8 @@ class RunConfig:
 
 
     # 配置运行的 URL
-    uat_url = "https://uat-api.3ona.co"
-    prd_url="https://api.crypto.com"
+    uat_url = "uat-api.3ona.co"
+    prd_url="api.crypto.com"
 
     # 失败重跑次数
     rerun = "1"
