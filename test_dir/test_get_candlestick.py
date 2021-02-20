@@ -22,17 +22,11 @@ def get_data():
                          get_data()
                          )
 def test_get_candlestick(address, instrument_name, timeframe, errorcode):
-    try:
-        res = CommonApiUtils.get_candlestick(address, instrument_name, timeframe)
-        assert res["code"]!=int(errorcode)
-    except Exception as e:
-
-        print(e)
-
-    finally:
-        pass
+    res = CommonApiUtils.get_candlestick(address, instrument_name, timeframe)
+    assert res["code"] == int(errorcode)
+    assert res["result"]["instrument_name"] == instrument_name
+    assert res["result"]["interval"] == timeframe
 
 
 if __name__ == '__main__':
-    print(get_data())
     pytest.main(["-s"])
