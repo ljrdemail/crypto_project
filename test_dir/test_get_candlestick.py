@@ -7,28 +7,32 @@ from conftest import *
 from service.api_utils import CommonApiUtils
 
 
-class TestGetCandlestick:
+def get_data():
+    """
+    读取参数化文件
+    :param get_excel_path:
+    :return:
+    """
+    excel = Excel(RunConfig.DATA_LOCATION)
+    testdatalist = excel.get_page_data(page="candlestick")
+    return testdatalist
 
 
-    def test_get_candlestick(self,get_excel_path,get_uat_url):
+@pytest.mark.parametrize("address,instrument_name,timeframe,errorcode",
+                         get_data()
+                         )
+def test_get_candlestick(address, instrument_name, timeframe, errorcode):
+    try:
+        res = CommonApiUtils.get_candlestick(address, instrument_name, timeframe)
+        assert res["code"]!=int(errorcode)
+    except Exception as e:
 
-        try:
-            excel = Excel(get_excel_path)
-            testdatalist = excel.get_page_data(page="candlestick")
-            for i in testdatalist:
-                res = CommonApiUtils.get_candlestick(get_uat_url, i[0], i[1])
-                print(res)
+        print(e)
 
-        except Exception as e:
-
-            return False
-
-        finally:
-            pass
-
-
-
+    finally:
+        pass
 
 
 if __name__ == '__main__':
+    print(get_data())
     pytest.main(["-s"])

@@ -24,4 +24,4 @@ class RunConfig:
     NEW_REPORT = None
 
     #测试数据路径
-    DATA_LOCATION=os.path.join(PRO_PATH, "data", "cyprto_test_data.xlsx")
+    DATA_LOCATION=os.path.join(PRO_PATH, "data", "cyprto_test_data.xls")

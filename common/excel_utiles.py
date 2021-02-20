@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import xlrd, xlwt
-from xlutils.copy import copy
-import time
+
 from base.base import Base
 
 class Excel(object):
@@ -32,20 +31,20 @@ class Excel(object):
                 for num in range(1, nrows):
                     row = table.row_values(num)
                     if row:
-                        lists.append(row)
+                        lists.append(tuple(row))
             else:
                 for num in range(0, nrows):
                     row = table.row_values(num)
                 if row:
-                    lists.append(row)
-            print(lists)
+                    lists.append(tuple(row))
+
             return lists
         except:
             Base.printErr("打开Excel中用例数据失败！")
 
 
 if __name__ == '__main__':
-    ec = Excel("..\\data\\cyprto_test_data.xlsx")
+    ec = Excel("..\\data\\cyprto_test_data.xls")
 
     stocklist=ec.get_page_data("candlestick")
     print (stocklist)
