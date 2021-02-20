@@ -2,31 +2,30 @@
 # __author__ = 'lijiarui'
 import pytest
 
+from common.excel_utiles import Excel
 from common.func import *
 from common.log import log_config
 from service.api_utils import CommonApiUtils
 
 
-@pytest.mark.parametrize(
-    "host, instrument_name, timeframe",
-    [("uat-api.3ona.co", "ETH_CRO", "5m")]
 
-)
-def test_get_candlestick(host,instrument_name,timeframe,log=None):
-    
+def test_get_candlestick():
+
     try:
+        excel=Excel("..\\data\\cyprto_test_data.xlsx")
+        testdatalist=excel.get_page_data(page="candlestick")
 
-        res=CommonApiUtils.get_candlestick(host,instrument_name,timeframe)
-        print(res)
-        assert 1==1
+        for i in testdatalist:
+         res=CommonApiUtils.get_candlestick(i[0],i[1],i[2])
+         print(res)
+         assert 1==1
 
     except Exception as e:
-        log.error(e)
-        log.error('traceback.print_exc():', str(traceback.print_exc()))
+
         return False
 
     finally:
-        log.info("清理数据")
+        print("清理数据")
 
 
 
