@@ -3,29 +3,37 @@
 import pytest
 
 from common.excel_utiles import Excel
-from common.func import *
-from common.log import log_config
 from service.api_utils import CommonApiUtils
 
 
+class TestGetCandlestick:
+    testdatalist = []
 
-def test_get_candlestick():
+    @classmethod
+    def setup_class(cls):
+        pass
 
-    try:
-        excel=Excel("..\\data\\cyprto_test_data.xlsx")
-        testdatalist=excel.get_page_data(page="candlestick")
+    @classmethod
+    def teardown_class(cls):
+        pass
 
-        for i in testdatalist:
-         res=CommonApiUtils.get_candlestick(i[0],i[1],i[2])
-         print(res)
-         assert 1==1
+    def test_get_candlestick(self):
 
-    except Exception as e:
+        try:
+            excel = Excel("..\\data\\cyprto_test_data.xlsx")
+            testdatalist = excel.get_page_data(page="candlestick")
+            
+            for i in testdatalist:
+                res = CommonApiUtils.get_candlestick(i[0], i[1], i[2])
+                print(res)
+                assert 1 == 1
 
-        return False
+        except Exception as e:
 
-    finally:
-        print("清理数据")
+            return False
+
+        finally:
+            print("清理数据")
 
 
 
