@@ -9,7 +9,7 @@ from config import RunConfig
 
 # 项目目录配置
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-REPORT_DIR = BASE_DIR + "/test_report/"
+REPORT_DIR = BASE_DIR + os.sep+"test_report"+os.sep
 
 
 # 定义基本测试环境
