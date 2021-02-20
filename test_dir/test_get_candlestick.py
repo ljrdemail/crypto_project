@@ -3,40 +3,32 @@
 import pytest
 
 from common.excel_utiles import Excel
+from conftest import *
 from service.api_utils import CommonApiUtils
 
 
 class TestGetCandlestick:
-    testdatalist = []
 
-    @classmethod
-    def setup_class(cls):
-        pass
 
-    @classmethod
-    def teardown_class(cls):
-        pass
-
-    def test_get_candlestick(self):
+    def test_get_candlestick(self,get_excel_path,get_uat_url):
 
         try:
-            excel = Excel("..\\data\\cyprto_test_data.xlsx")
+            excel = Excel(get_excel_path)
             testdatalist = excel.get_page_data(page="candlestick")
-            
             for i in testdatalist:
-                res = CommonApiUtils.get_candlestick(i[0], i[1], i[2])
+                res = CommonApiUtils.get_candlestick(get_uat_url, i[0], i[1])
                 print(res)
-                assert 1 == 1
 
         except Exception as e:
 
             return False
 
         finally:
-            print("清理数据")
+            pass
+
 
 
 
 
 if __name__ == '__main__':
-    pytest.main()
+    pytest.main(["-s"])

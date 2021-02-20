@@ -7,7 +7,7 @@ from base.base import Base
 class Excel(object):
     def __init__(self, file):
 
-        self.file = Base.get_cur_dir(__file__)  + "\\" + file
+        self.file = file
 
         self.data = None
     #打开excel文件
@@ -38,6 +38,7 @@ class Excel(object):
                     row = table.row_values(num)
                 if row:
                     lists.append(row)
+            print(lists)
             return lists
         except:
             Base.printErr("打开Excel中用例数据失败！")
