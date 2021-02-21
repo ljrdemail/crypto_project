@@ -25,7 +25,6 @@ def get_data():
 def test_send_info(ws_connect_close,id,instrument_name,depth,nonce,errorcode):
     # 第一步：准备参数
     channel=".".join(["book",instrument_name,str(depth)])
-    print(channel)
     params = {
         "id": id,
         "method": "subscribe",
@@ -40,12 +39,8 @@ def test_send_info(ws_connect_close,id,instrument_name,depth,nonce,errorcode):
     # 获取结果
     ws_connect_close.recv()
     result2 = ws_connect_close.recv()
-
     res2 = json.loads(result2)
-
     # 第三步：断言：
-
-    print("接收结果2：", res2)
     assert expected['code'] == res2['code']
 
 
