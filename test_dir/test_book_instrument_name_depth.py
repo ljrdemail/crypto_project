@@ -14,20 +14,27 @@ def get_data():
     """
     excel = Excel(RunConfig.DATA_LOCATION)
     testdatalist = excel.get_page_data(page="instrument_depth")
+    print(testdatalist)
     return testdatalist
 
 
-def test_send_info(ws_connect_close):
+
+@pytest.mark.parametrize("id,instrument_name,depth,nonce,errorcode",
+                         get_data()
+                         )
+def test_send_info(ws_connect_close,id,instrument_name,depth,nonce,errorcode):
     # 第一步：准备参数
+    channel=".".join(["book",instrument_name,str(depth)])
+    print(channel)
     params = {
-        "id": 11,
+        "id": id,
         "method": "subscribe",
         "params": {
             "channels": ["book.ETH_CRO.150"]
         },
-        "nonce": 1587523073344
+        "nonce": nonce
     }
-    expected = {'code': 0}
+    expected = {'code': errorcode}
     # 第二步：发送请求
     ws_connect_close.send(json.dumps(params))
     # 获取结果

@@ -7,7 +7,8 @@ class RunConfig:
     运行测试配置
     """
     # 运行测试用例的目录或文件
-    cases_path = os.path.join(PRO_PATH, "test_dir", "test_get_candlestick.py")
+    # cases_path = os.path.join(PRO_PATH, "test_dir", "test_get_candlestick.py")
+    cases_path = os.path.join(PRO_PATH, "test_dir", "test_book_instrument_name_depth.py")
 
 
     # 配置运行的 URL
