@@ -32,14 +32,10 @@ def get_ws_url():
 
 @pytest.fixture(scope="function")
 def ws_connect_close(get_ws_url):
-
     websocket.enableTrace(True)  # 打开跟踪，查看日志
     ws = create_connection(get_ws_url)  # 创建连接
     ws.settimeout(10)  # 设置超时时间
-
     yield ws
-
-
     ws.close()
 
 
