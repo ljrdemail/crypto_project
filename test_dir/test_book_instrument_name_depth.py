@@ -14,7 +14,6 @@ def get_data():
     """
     excel = Excel(RunConfig.DATA_LOCATION)
     testdatalist = excel.get_page_data(page="instrument_depth")
-    print(testdatalist)
     return testdatalist
 
 
