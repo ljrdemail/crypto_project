@@ -25,3 +25,5 @@ class RunConfig:
 
     #测试数据路径
     DATA_LOCATION=os.path.join(PRO_PATH, "data", "cyprto_test_data.xls")
+
+    WS_URL="wss://uat-stream.3ona.co/v2/market/"
