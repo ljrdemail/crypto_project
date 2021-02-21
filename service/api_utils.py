@@ -24,7 +24,6 @@ class CommonApiUtils(object):
         """
         query_param={"instrument_name":instrument_name,"timeframe":timeframe}
         res = CommonApis.get_cancle_stick(address, param=query_param)
-        if res['code'] != SSecConst.SUCCESS_CODE:
-            return False
+
         return res
 
