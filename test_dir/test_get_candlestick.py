@@ -23,7 +23,7 @@ def get_data():
                          )
 def test_get_candlestick(address, instrument_name, timeframe, errorcode):
     res = CommonApiUtils.get_candlestick(address, instrument_name, timeframe)
-    if res["code"] == int(0):
+    if res  and res["code"] == int(0):
         assert res["code"] == int(errorcode)
         assert res["result"]["instrument_name"] == instrument_name
         assert res["result"]["interval"] == timeframe
