@@ -1,5 +1,5 @@
 # -*-coding:utf-8 -*-
-from base.ssec_config import *
+from base.api_config import *
 from common.func import Func
 
 

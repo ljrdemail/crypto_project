@@ -1,8 +1,8 @@
 # -*-coding:utf-8 -*-
 
-from base.ssec_api import *
+from base.api_invoke import *
 
-from base.ssec_config import SSecConst
+from base.api_config import SSecConst
 
 
 
