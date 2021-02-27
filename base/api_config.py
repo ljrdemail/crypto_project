@@ -41,5 +41,4 @@ class SSecConst:
                   ]
 
     # CommonApis
-    GET_CANDLE_STICK = {'method': 'GET',
-                        'uri': '/v2/public/get-candlestick'}
+    GET_CANDLE_STICK = {'method': 'GET','uri': '/v2/public/get-candlestick'}

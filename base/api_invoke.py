@@ -12,13 +12,11 @@ class CommonApis(object):
     """
 
     @staticmethod
-    # @verify_login
+
     def get_cancle_stick(host, param):
         """
-        获取设备列表
-        :param body:
+        get_cancle_stick
         :param host:
-        :param header:
         :return:
         """
         time.sleep(1)
