@@ -2,9 +2,9 @@
 # __author__ = 'lijiarui'
 import pytest
 
-from common.excel_utiles import Excel
+from common.excelUtiles import Excel
 from conftest import *
-from service.api_utils import CommonApiUtils
+from service.apiServices import CommonApiUtils
 
 
 def get_data():

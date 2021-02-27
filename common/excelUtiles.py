@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import xlrd
 
+
 from common.base import Base
+
 
 class Excel(object):
     def __init__(self, file):

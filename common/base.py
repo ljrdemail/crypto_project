@@ -1,10 +1,29 @@
-import os
-import sys
-import smtplib
-from email.header import Header
-from email.mime.text import MIMEText
+# -*- coding: utf-8 -*-
+# __author__ = 'zhouqiang'
 
-class Base(object):
+
+import logging
+import sys
+from .apiUtils import Api as WrapperApi
+from .log import log_config, LOG_LEVEL
+import os
+LOG_LEVEL = {'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10}
+
+
+class Base:
+    log = log_config(c_level=logging.WARNING, f_level=None)[0]
+    log_msg_flag = False
+    protocol = 'https'
+
+    @classmethod
+    def api(cls, *args, **kwargs):
+        protocol = cls.protocol
+        if kwargs.get('gateway_protocol'):
+            protocol = kwargs.get('gateway_protocol')
+            del kwargs['gateway_protocol']
+        _api = WrapperApi(*args, log=cls.log, log_msg_flag=cls.log_msg_flag, protocol=protocol,verify=False, **kwargs)
+        return _api
+
     @staticmethod
     def printErr(userInfo="", bPrint=True):
         exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -15,9 +34,4 @@ class Base(object):
         if bPrint:
             print(msg)
         return msg
-
-    #获取file所在的当前路径
-    @staticmethod
-    def get_cur_dir(file):
-        return os.path.split(os.path.realpath(file))[0]
 
