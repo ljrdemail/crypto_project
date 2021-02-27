@@ -44,10 +44,25 @@ class Excel(object):
         except:
             Func.printErr("打开Excel中用例数据失败！")
 
+    def write_by_index(self, row, col, page,value):
+        try:
+            self.target.get_sheet(page).write(row, col, value)
+            return True
+        except:
+            Func.printErr("按行列号写入Excel文件失败！")
+            return False
+
+    def save_excel(self):
+        try:
+            self.target.save(self.targetName)
+            return True
+        except:
+            Func.printErr("保存Excel文件失败！")
+            return False
+
 
 if __name__ == '__main__':
     ec = Excel("..\\data\\cyprto_test_data.xls")
-
     stocklist=ec.get_page_data("candlestick")
     print (stocklist)
 
