@@ -33,4 +33,4 @@ def test_get_candlestick(address, instrument_name, timeframe, errorcode):
 
 
 if __name__ == '__main__':
-    pytest.main(["-s", "-v"])
+    pytest.main(["-s", "-v","test_get_candlestick.py"])

@@ -2,7 +2,7 @@
 import xlrd
 
 
-from common.base import Base
+from common.func import Func
 
 
 class Excel(object):
@@ -18,7 +18,7 @@ class Excel(object):
                 self.data = xlrd.open_workbook(self.file)
             return True
         except:
-            Base.printErr("打开Excel文件失败！")
+            Func.printErr("打开Excel文件失败！")
             return False
 
 
@@ -42,7 +42,7 @@ class Excel(object):
 
             return lists
         except:
-            Base.printErr("打开Excel中用例数据失败！")
+            Func.printErr("打开Excel中用例数据失败！")
 
 
 if __name__ == '__main__':

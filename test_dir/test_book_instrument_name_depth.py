@@ -44,4 +44,4 @@ def test_send_info(ws_connect_close,id,instrument_name,depth,nonce,errorcode):
 
 
 if __name__ == '__main__':
-    pytest.main(["-s", "-v"])
+    pytest.main(["-s", "-v","test_book_instrument_name_depth.py"])

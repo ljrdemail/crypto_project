@@ -10,7 +10,7 @@ import os
 LOG_LEVEL = {'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10}
 
 
-class Base:
+class Func:
     log = log_config(c_level=logging.WARNING, f_level=None)[0]
     log_msg_flag = False
     protocol = 'https'

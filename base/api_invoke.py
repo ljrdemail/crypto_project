@@ -1,6 +1,6 @@
 # -*-coding:utf-8 -*-
 from base.api_config import *
-from common.base import Base
+from common.func import Func
 import time
 
 
@@ -20,6 +20,6 @@ class CommonApis(object):
         :return:
         """
         time.sleep(1)
-        api = Base.api(host, body=param, **SSecConst.GET_CANDLE_STICK)
+        api = Func.api(host, body=param, **SSecConst.GET_CANDLE_STICK)
         return api.get_response()
 
