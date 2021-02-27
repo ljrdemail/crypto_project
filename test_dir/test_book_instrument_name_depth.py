@@ -2,7 +2,7 @@ import json
 import unittest
 from websocket import create_connection
 import websocket
-from common.excelUtiles import Excel
+from common.excel_utiles import Excel
 from conftest import *
 
 
@@ -44,4 +44,4 @@ def test_send_info(ws_connect_close,id,instrument_name,depth,nonce,errorcode):
 
 
 if __name__ == '__main__':
-    pytest.main(["-s"])
+    pytest.main(["-s", "-v"])

@@ -4,7 +4,7 @@
 
 import logging
 import sys
-from .apiUtils import Api as WrapperApi
+from .api_utils import Api as WrapperApi
 from .log import log_config, LOG_LEVEL
 import os
 LOG_LEVEL = {'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10}

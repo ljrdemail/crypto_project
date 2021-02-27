@@ -2,15 +2,14 @@
 # __author__ = 'lijiarui'
 import pytest
 
-from common.excelUtiles import Excel
+from common.excel_utiles import Excel
 from conftest import *
-from service.apiServices import CommonApiUtils
+from service.api_services import CommonApiUtils
 
 
 def get_data():
     """
     读取参数化文件
-    :param get_excel_path:
     :return:
     """
     excel = Excel(RunConfig.DATA_LOCATION)
@@ -22,6 +21,8 @@ def get_data():
                          get_data()
                          )
 def test_get_candlestick(address, instrument_name, timeframe, errorcode):
+    # address=get_uat_url
+    # print(address)
     res = CommonApiUtils.get_candlestick(address, instrument_name, timeframe)
     if res  and res["code"] == int(0):
         assert res["code"] == int(errorcode)
@@ -32,4 +33,4 @@ def test_get_candlestick(address, instrument_name, timeframe, errorcode):
 
 
 if __name__ == '__main__':
-    pytest.main(["-s"])
+    pytest.main(["-s", "-v"])

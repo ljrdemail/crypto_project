@@ -14,22 +14,6 @@ REPORT_DIR = BASE_DIR + os.sep+"test_report"+os.sep
 
 
 # 定义基本测试环境
-@pytest.fixture(autouse=True)
-def get_uat_url():
-    return RunConfig.uat_url
-
-@pytest.fixture(autouse=True)
-def get_prd_url():
-    return RunConfig.prd_url
-
-@pytest.fixture(autouse=True)
-def get_excel_path():
-    return RunConfig.DATA_LOCATION
-
-@pytest.fixture(autouse=True)
-def get_ws_url():
-    return RunConfig.WS_URL
-
 @pytest.fixture(scope="function")
 def ws_connect_close(get_ws_url):
     websocket.enableTrace(True)  # 打开跟踪，查看日志

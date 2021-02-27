@@ -24,6 +24,5 @@ class CommonApiUtils(object):
         """
         query_param={"instrument_name":instrument_name,"timeframe":timeframe}
         res = CommonApis.get_cancle_stick(address, param=query_param)
-
         return res
 
