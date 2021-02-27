@@ -7,7 +7,7 @@ import traceback
 import json
 import os
 import re
-
+import urllib3
 s = requests.Session()
 a = requests.adapters.HTTPAdapter(pool_connections=100, pool_maxsize=100)
 s.mount('http://', a)
@@ -44,6 +44,7 @@ class Api:
 
     def request(self):
         t_start = time.time()
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         try:
             if not isinstance(self.body, dict):
                 self.url = self.protocol + '://' + self.host + self.uri.replace('{}', str(self.body))

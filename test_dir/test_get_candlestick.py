@@ -21,8 +21,6 @@ def get_data():
                          get_data()
                          )
 def test_get_candlestick(address, instrument_name, timeframe, errorcode):
-    # address=get_uat_url
-    # print(address)
     res = CommonApiUtils.get_candlestick(address, instrument_name, timeframe)
     if res  and res["code"] == int(0):
         assert res["code"] == int(errorcode)
