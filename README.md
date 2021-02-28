@@ -6,8 +6,12 @@ Setup Guid:(request&websocket)
 2 install requirement package in requirements.txt
 3 set file name by change param cases_path in config.py ,if you want to change which case you want to run in run_tests.py
 4 if you want to run scripts in jenkins please follow steps as flow:
-   a create a free style project in jenkins 
-
+   a create a free style project in jenkins
+   b config git install path and github address in project
+   c add build steps(Execute shell script) in jenkins and input python run_tests.py -m run
+   d config html report
+   e config junit report to check trand of failure rates
+   f config email send
 Case & Framework desc:(request&websocket)
 
 1 project is base on pytest framework and it contains 3 layers
