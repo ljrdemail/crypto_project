@@ -6,18 +6,18 @@ Setup Guid:(request&websocket)
 2 install requirement package in requirements.txt
 3 set file name by change param cases_path in config.py ,if you want to change which case you want to run in run_tests.py
 4 if you want to run scripts in jenkins please follow steps as flow:
-   a create 
+   a create a free style project in jenkins 
 
 Case & Framework desc:(request&websocket)
 
 1 project is base on pytest framework and it contains 3 layers
-   a api_config to config api_document content if change only need to update this file
-   b api_invoke to send request with python request
-   c common directory maintain common function 
-   d parametrize with excel and check error code is expected
-   e service contain function to invoke method in api_invoke.py if more than one api is needed this layer is require
-   f test_dir contain test case 
+   a api_config.py which enclose api_document content
+   b api_invoke to send request by invoke Func.api() which enclose python request methods 
+   c api_services.py contain methods to obtain response message from server 
+   d test_cases located in test_dir with test_ prefix which require by pytest frame work 
+   e common directory maintain common function like api_utils enclose python request ans excel_utils  enclose excel read and write methods
+   f parametrize with excel and set excel file location in config.py 
    g rest_report contain test report generate by run_test.py
-   h config.py and conftest contain golbal config for py test
-   i websocket setup and tear down by ws_connect_close in configtest.py
+   h config.py and conftest contain golbal config  and fixture for pytest
+   i websocket setup and tear down by ws_connect_close fixture in configtest.py
    
