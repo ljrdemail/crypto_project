@@ -21,7 +21,7 @@ def get_data():
 @pytest.mark.parametrize("id,instrument_name,depth,nonce,errorcode",
                          get_data()
                          )
-def test_send_info(ws_connect_close,id,instrument_name,depth,nonce,errorcode):
+def test_send_info(ws_connect_close_long,id,instrument_name,depth,nonce,errorcode):
     # 第一步：准备参数
     channel=".".join(["book",instrument_name,str(depth)])
     params = {

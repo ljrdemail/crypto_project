@@ -22,6 +22,13 @@ def ws_connect_close(get_ws_url):
     yield ws
     ws.close()
 
+@pytest.fixture()
+def ws_connect_close_long(get_ws_url):
+    websocket.enableTrace(True)  # 打开跟踪，查看日志
+    ws = websocket.WebSocketApp(get_ws_url)  # 创建连接
+    ws.settimeout(10)  # 设置超时时间
+    yield ws
+    ws.close()
 
 @pytest.fixture()
 def get_ws_url():
