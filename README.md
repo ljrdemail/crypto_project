@@ -24,4 +24,5 @@ Case & Framework desc:(request&websocket)
    g rest_report contain test report generate by run_test.py
    h config.py and conftest contain golbal config  and fixture for pytest
    i websocket setup and tear down by ws_connect_close fixture in configtest.py
+   test poll jenknis build
    
