@@ -10,6 +10,48 @@ def get_info():
         if i["id"] == 8:
             return i["email"]
 
+def changeint(value):
+    if isinstance(value, int):
+        return value
+    elif isinstance(value, float):
+        return int(value)
+    elif isinstance(value, bool):
+        return int(value)
+    elif isinstance(value, str):
+        try:
+            return int(value)
+        except:
+            return "输入的字符不能转换为int类型"
+    elif isinstance(value, type(None)):
+        return "输入的字符不能转换为int类型"
+    else:
+        return "输入的字符不能转换为int类型"
 
-res = get_info()
-print(res)
+def check_8():
+    sorlist=[4,3,1,5,6,7]
+    resultlist=[]
+    for i in range(len(sorlist)):
+        for j in range(i+1,len(sorlist)):
+            if sorlist[i]+sorlist[j]==8:
+                resultlist.append((i,j))
+            else:
+                continue
+    return resultlist
+
+if __name__=="__main__":
+    res=check_8()
+    print(res)
+    res=changeint(1)
+    print(res)
+    res=changeint(2.5)
+    print(res)
+    res=changeint(True)
+    print(res)
+    res=changeint("张三")
+    print(res)
+    res=changeint("10")
+    print(res)
+    res=changeint(None)
+    print(res)
+    res = get_info()
+    print(res)
