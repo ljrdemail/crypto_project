@@ -38,20 +38,33 @@ def check_8():
                 continue
     return resultlist
 
+def check_max_price():
+    pricelist=[4,3,7,5,6,1]
+    while True:
+        if pricelist.index(sorted(pricelist)[-1])>pricelist.index(sorted(pricelist)[0]):
+            return sorted(pricelist)[-1]-sorted(pricelist)[0]
+        else:
+            pricelist.remove(sorted(pricelist)[-1])
+            pricelist.remove(sorted(pricelist)[0])
+            continue
+
+
 if __name__=="__main__":
-    res=check_8()
+    res=check_max_price()
     print(res)
-    res=changeint(1)
-    print(res)
-    res=changeint(2.5)
-    print(res)
-    res=changeint(True)
-    print(res)
-    res=changeint("张三")
-    print(res)
-    res=changeint("10")
-    print(res)
-    res=changeint(None)
-    print(res)
-    res = get_info()
-    print(res)
+    # res=check_8()
+    # print(res)
+    # res=changeint(1)
+    # print(res)
+    # res=changeint(2.5)
+    # print(res)
+    # res=changeint(True)
+    # print(res)
+    # res=changeint("张三")
+    # print(res)
+    # res=changeint("10")
+    # print(res)
+    # res=changeint(None)
+    # print(res)
+    # res = get_info()
+    # print(res)
