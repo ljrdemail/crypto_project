@@ -39,7 +39,7 @@ def check_8():
     return resultlist
 
 def check_max_price():
-    pricelist=[4,3,7,5,6,1]
+    pricelist=[4,3,1,5,6,7]
     while True:
         if pricelist.index(sorted(pricelist)[-1])>pricelist.index(sorted(pricelist)[0]):
             return sorted(pricelist)[-1]-sorted(pricelist)[0]
