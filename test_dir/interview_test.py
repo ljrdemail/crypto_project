@@ -48,9 +48,16 @@ def check_max_price():
             pricelist.remove(sorted(pricelist)[0])
             continue
 
+def sorted_list(sortedlist):
+    length = len(sortedlist)
+    sortedlist=[]
+    for i in range(0, length):
+        sortedlist.append(length - i)
+    return sortedlist
+
 
 if __name__=="__main__":
-    res=check_max_price()
+    res=sorted_list([1,2,3,4,5,6,7])
     print(res)
     # res=check_8()
     # print(res)
